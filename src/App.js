@@ -1,24 +1,43 @@
-import logo from './logo.svg';
+import React, { useState } from "react";
 import './App.css';
 
 function App() {
+  const [payment, setPayment] = useState({
+    loanPayment: "",
+    amount: "",
+    rate: "",
+    years: ""
+  });
+
+
+  const handleChange = (event) => {
+    const { name, value } = event.target
+    setPayment({ 
+      [name]: value 
+    };)
+
+
+  }
+
+
+
+
+
+
+
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+      <h1>Mortgage Calculator</h1>
+      <p><input type="text" name="amount" value={payment.amount} onChange={handleChange} placeholder="mortgage amount" /> </p>
+      <p><input type="text" name="rate" onChange={handleChange} value={payment.rate} placeholder="interest rate" /> </p>
+      <p><input type="text" name="years" onChange={handleChange} value={payment.years} placeholder="years" /> </p>
+      <button>Calculate</button>
+
     </div>
+
   );
 }
 
