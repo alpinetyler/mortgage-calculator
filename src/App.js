@@ -14,7 +14,7 @@ function App() {
     const { name, value } = event.target
     setPayment({ 
       [name]: value 
-    };)
+    });
 
 
   }
