@@ -1,6 +1,8 @@
 import React, { useState } from "react";
-import NumberFormat from "react-number-format";
-import './App.css';
+import Form from './Form';
+import Header from './Header';
+import Footer from './Footer'
+import '../App.css';
 
 function App() {
   const [payment, setPayment] = useState({
@@ -68,19 +70,19 @@ function App() {
 
   return (
     <div className="App">
-
-      <h1>Mortgage Calculator</h1>
-      <form onSubmit={handleSubmit}>
-        <p><NumberFormat thousandSeparator={true} prefix={'$'} type="text" name="amount" onChange={handleChange} value={payment.amount || ""} placeholder="mortgage amount" /> </p>
-        <p><NumberFormat suffix={"%"} name="rate" onChange={handleChange} value={payment.rate || ""} placeholder="interest rate" /> </p>
-        <p><input type="text" name="years" onChange={handleChange} value={payment.years || ""} placeholder="years" /> </p>
-        <button type="submit">{payment.loanPayment ? "Re-Calculate" : "Calculate"}</button>
-        <p><button onClick={clearContent}>Start Over</button></p>
-      </form>
+      <Header />
+      
+      <Form 
+        handleSubmit = {handleSubmit}
+        handleChange = {handleChange}
+        clearContent = {clearContent}
+        payment = {payment}
+      
+      />
 
 
       <h1>Monthly Payment: {payment.loanPayment}</h1>
-
+    <Footer />
     </div>
 
   );
