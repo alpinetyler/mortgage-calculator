@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Form from './Form';
 import Header from './Header';
 import Footer from './Footer'
+import MonthlyPayment from './MonthlyPayment'
 import '../App.css';
 
 function App() {
@@ -47,11 +48,8 @@ function App() {
           ...prevValue,
           loanPayment: formatter.format(monthlyPayment),
         }
-
       })
-
     }
-
     if (!payment.amount) {
       setPayment({ loanPayment: "" })
     }
@@ -77,11 +75,12 @@ function App() {
         handleChange = {handleChange}
         clearContent = {clearContent}
         payment = {payment}
-      
       />
 
-
-      <h1>Monthly Payment: {payment.loanPayment}</h1>
+      <MonthlyPayment 
+      //  monthlyPayment = {MonthlyPayment}
+       loanPayment = {payment.loanPayment}
+      />
     <Footer />
     </div>
 
