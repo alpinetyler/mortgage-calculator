@@ -25,11 +25,11 @@ function App() {
     setPayment(prevValue => {
       return {
         ...prevValue,
-        [name]: value
+        [name]: value,
       };
     });
 
-  //console.log(payment.amount, payment.rate, payment.years)
+  console.log(payment.amount, payment.rate, payment.years)
 
     
   }
@@ -37,10 +37,14 @@ function App() {
   const handleSubmit = (event) => {
 
     parseFloat(payment.amount, payment.rate, payment.years)
-
+    
+    let mortgageAmount
     let monthlyInterest = (payment.rate / 100) / 12;
     let months = payment.years * 12;
-    let mortgageAmount = payment.amount.replace(/\$|,/g, '')
+    if(payment.amount){
+      mortgageAmount = payment.amount.replace(/\$|,/g, '')
+    }
+    
 
     console.log("after submit:", payment.amount, payment.rate, payment.years)
 

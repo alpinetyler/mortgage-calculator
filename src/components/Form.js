@@ -5,7 +5,12 @@ import NumberFormat from 'react-number-format';
 
 function Form(props){
     return(
-        <form onSubmit={props.handleSubmit} autoComplete="off">
+        <form 
+              onMouseOut={props.handleSubmit} 
+              onMouseOver={props.handleSubmit} 
+              onSubmit={props.handleSubmit}
+              onFocus={props.handleSubmit} 
+              autoComplete="off">
         
         <div>
 
@@ -58,7 +63,7 @@ function Form(props){
     
           
         <div className="mb-2">
-        <button className="btn btn-outline-primary" type="submit">{props.payment.loanPayment ? "Re-Calculate" : "Calculate"}
+        <button className="btn btn-outline-primary" type="submit">{props.payment.loanPayment ? "Re-calculate" : "Calculate"}
         </button>
         </div>
 
