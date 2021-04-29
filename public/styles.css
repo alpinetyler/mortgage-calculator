@@ -67,7 +67,7 @@
     outline: none;
   } */
   
-  /* form {
+  form {
     position: relative;
     width: 480px;
     margin: 30px auto 20px auto;
@@ -75,7 +75,12 @@
     padding: 15px;
     border-radius: 7px;
     box-shadow: 0 1px 5px rgb(138, 137, 137);
-  } */
+  }
+
+/* label {
+  margin-left: 5px;
+} */
+  
   /* form input,
   form textarea {
     width: 100%;
@@ -100,4 +105,3 @@
     cursor: pointer;
     outline: none;
   } */
-  

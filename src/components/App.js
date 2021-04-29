@@ -28,6 +28,10 @@ function App() {
         [name]: value
       };
     });
+
+  //console.log(payment.amount, payment.rate, payment.years)
+
+    
   }
 
   const handleSubmit = (event) => {

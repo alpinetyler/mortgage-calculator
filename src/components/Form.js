@@ -5,21 +5,67 @@ import NumberFormat from 'react-number-format';
 
 function Form(props){
     return(
-        <form onSubmit={props.handleSubmit}>
-        <div className="form-floating mb-3">
-          <p><input className="form-control" id="floatingInput" thousandSeparator={true} prefix={'$'} type="text" name="amount" onChange={props.handleChange} value={props.payment.amount || ""} placeholder="mortgage amount" /> </p>
-          <label for="floatingInput">Mortgage Amount</label>
+        <form onSubmit={props.handleSubmit} autoComplete="off">
+        
+        <div>
+
+        
+        <div className="form-floating mb-2 ">
+        <NumberFormat
+                type="text"  
+                className="form-control"
+                id="floatingAmount"
+                thousandSeparator={true} 
+                prefix={'$'} 
+                name="amount" 
+                onChange={props.handleChange} 
+                value={props.payment.amount || ""} 
+                placeholder="Loan Amount" /> 
+                
+                <label htmlFor="floatingAmount">Loan Amount</label>
+          </div>
+         
+          <div className="form-floating mb-2 ">
+          <input
+                type="text"
+                className="form-control"
+                id="floatingRate"
+                name="rate" 
+                onChange={props.handleChange} 
+                value={props.payment.rate || ""} 
+                placeholder="interest rate" /> 
+
+                <label htmlFor="floatingRate">Interest rate</label>
+            </div>
+         
+          <div className="form-floating mb-2">
+         <input 
+                type="text"
+                className="form-control"
+                id="floatingYears"
+                name="years" 
+                onChange={props.handleChange} 
+                value={props.payment.years || ""} 
+                placeholder="years" /> 
+                
+                <label htmlFor="floatingYears">Years</label>
+
+          </div>
+          </div>
+  
+
+
+    
+          
+        <div className="mb-2">
+        <button className="btn btn-outline-primary" type="submit">{props.payment.loanPayment ? "Re-Calculate" : "Calculate"}
+        </button>
         </div>
 
-        {/* <div className="form-floating mb-3">
-        <input type="email" className="form-control" id="floatingInput" placeholder="name@example.com">
-        <label for="floatingInput">Email address</label>
-        </div> */}
-       
-        <p><input name="rate" onChange={props.handleChange} value={props.payment.rate || ""} placeholder="interest rate" /> </p>
-        <p><input type="text" name="years" onChange={props.handleChange} value={props.payment.years || ""} placeholder="years" /> </p>
-        <button type="submit">{props.payment.loanPayment ? "Re-Calculate" : "Calculate"}</button>
-        <p><button onClick={props.clearContent}>Start Over</button></p>
+        <div>
+        <button className="btn btn-outline-primary" onClick={props.clearContent}>Start Over</button>
+        </div>
+          
       </form>
     )
 }
