@@ -15,7 +15,7 @@ function Form(props){
         <div>
 
         
-        <div className="form-floating mb-2 ">
+        <div className="form-floating mb-2">
         <NumberFormat
                 type="text"  
                 className="form-control"

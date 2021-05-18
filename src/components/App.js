@@ -22,7 +22,7 @@ function App() {
   const handleChange = (event) => {
     const { name, value } = event.target
 
-    setPayment(prevValue => {
+   setPayment(prevValue => {
       return {
         ...prevValue,
         [name]: value,

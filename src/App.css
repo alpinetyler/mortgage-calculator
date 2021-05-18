@@ -24,6 +24,10 @@
   color: white;
 }
 
+input {
+  width: 300px;
+}
+
 .App-link {
   color: #61dafb;
 }
