@@ -4,6 +4,7 @@ import Header from './Header';
 import Footer from './Footer'
 import MonthlyPayment from './MonthlyPayment'
 import '../App.css';
+import '../styles.css';
 
 function App() {
   const [payment, setPayment] = useState({
@@ -22,29 +23,29 @@ function App() {
   const handleChange = (event) => {
     const { name, value } = event.target
 
-   setPayment(prevValue => {
+    setPayment(prevValue => {
       return {
         ...prevValue,
         [name]: value,
       };
     });
 
-  console.log(payment.amount, payment.rate, payment.years)
+    console.log(payment.amount, payment.rate, payment.years)
 
-    
+
   }
 
   const handleSubmit = (event) => {
 
     parseFloat(payment.amount, payment.rate, payment.years)
-    
+
     let mortgageAmount
     let monthlyInterest = (payment.rate / 100) / 12;
     let months = payment.years * 12;
-    if(payment.amount){
+    if (payment.amount) {
       mortgageAmount = payment.amount.replace(/\$|,/g, '')
     }
-    
+
 
     console.log("after submit:", payment.amount, payment.rate, payment.years)
 
@@ -77,19 +78,19 @@ function App() {
   return (
     <div className="App">
       <Header />
-      
-      <Form 
-        handleSubmit = {handleSubmit}
-        handleChange = {handleChange}
-        clearContent = {clearContent}
-        payment = {payment}
+
+      <Form
+        handleSubmit={handleSubmit}
+        handleChange={handleChange}
+        clearContent={clearContent}
+        payment={payment}
       />
 
-      <MonthlyPayment 
-      //  monthlyPayment = {MonthlyPayment}
-       loanPayment = {payment.loanPayment}
+      <MonthlyPayment
+        //  monthlyPayment = {MonthlyPayment}
+        loanPayment={payment.loanPayment}
       />
-    <Footer />
+      <Footer />
     </div>
 
   );
